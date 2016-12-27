@@ -2,7 +2,7 @@ package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.Role;
 
-public interface SysRoleMapper {
+public interface RoleDao {
     int deleteByPrimaryKey(Long id);
 
     int insert(Role record);

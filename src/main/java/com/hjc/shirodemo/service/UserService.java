@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by Bravowhale on 2016/12/27.
  */
-public interface UserServcie {
+public interface UserService {
     /*
     * 修改密码
     * */

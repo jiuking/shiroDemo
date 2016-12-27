@@ -2,7 +2,7 @@ package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.Organization;
 
-public interface SysOrganizationMapper {
+public interface OrganizationDao {
     int deleteByPrimaryKey(Long id);
 
     int insert(Organization record);

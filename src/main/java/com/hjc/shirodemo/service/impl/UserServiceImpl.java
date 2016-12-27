@@ -1,13 +1,14 @@
-package com.hjc.shirodemo.service;
+package com.hjc.shirodemo.service.impl;
 
 import com.hjc.shirodemo.persistence.dao.entity.User;
+import com.hjc.shirodemo.service.UserService;
 
 import java.util.Set;
 
 /**
  * Created by Bravowhale on 2016/12/27.
  */
-public class UserServiceImpl implements UserServcie{
+public class UserServiceImpl implements UserService {
 
     public void changePassword(Long userId, String newPassword) {
 

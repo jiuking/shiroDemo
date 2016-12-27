@@ -2,7 +2,7 @@ package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.User;
 
-public interface SysUserMapper {
+public interface UserDao {
     int deleteByPrimaryKey(Long id);
 
     int insert(User record);

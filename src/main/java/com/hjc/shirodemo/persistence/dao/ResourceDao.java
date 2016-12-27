@@ -2,7 +2,7 @@ package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.Resource;
 
-public interface SysResourceMapper {
+public interface ResourceDao {
     int deleteByPrimaryKey(Long id);
 
     int insert(Resource record);
