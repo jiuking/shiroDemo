@@ -9,10 +9,10 @@ import java.util.List;
  */
 public interface OrganizationService{
     public int createOrganization(Organization organization);
-    public Organization updateOrganization(Organization organization);
+    public int updateOrganization(Organization organization);
     public void deleteOrganization(Long organizationId);
     Organization findOne(Long organizationId);
     List<Organization> findAll();
-    Object findAllWithExclude(Organization excludeOrganization);
+    Object findAllWithExclude(Long id,String parents);
     void move(Organization source,Organization target);
 }

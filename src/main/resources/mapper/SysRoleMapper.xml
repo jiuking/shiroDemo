@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hjc.shirodemo.persistence.dao.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="com.hjc.shirodemo.persistence.dao.entity.SysRole">
+<mapper namespace="com.hjc.shirodemo.persistence.dao.RoleDao">
+  <resultMap id="BaseResultMap" type="com.hjc.shirodemo.persistence.dao.entity.Role">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="role" jdbcType="VARCHAR" property="role" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -21,13 +21,13 @@
     delete from sys_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysRole">
+  <insert id="insert" parameterType="com.hjc.shirodemo.persistence.dao.entity.Role">
     insert into sys_role (id, role, description, 
       resource_ids, available)
     values (#{id,jdbcType=BIGINT}, #{role,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{resourceIds,jdbcType=VARCHAR}, #{available,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysRole">
+  <insert id="insertSelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.Role">
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.Role">
     update sys_role
     <set>
       <if test="role != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysRole">
+  <update id="updateByPrimaryKey" parameterType="com.hjc.shirodemo.persistence.dao.entity.Role">
     update sys_role
     set role = #{role,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},

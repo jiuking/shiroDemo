@@ -1,19 +1,29 @@
 package com.hjc.shirodemo.persistence.dao.entity;
 
-public class User {
-    private Long id;
+import java.io.Serializable;
+import java.util.List;
 
-    private Long organizationId;
+public class User implements Serializable{
 
-    private String username;
+    private static final long serialVersionUID = 7078673503578008078L;
 
-    private String password;
+    private Long id; //编号
 
-    private String salt;
+    private Long organizationId; //所属公司
 
-    private String roleIds;
+    private String username; //用户名
 
-    private Boolean locked;
+    private String password; //密码
+
+    private String salt; //加密密码的盐
+
+    private List<Long> roleIds; //拥有的角色列表
+
+    private Boolean locked = Boolean.FALSE;
+
+    public User(){
+
+    }
 
     public Long getId() {
         return id;
@@ -55,11 +65,11 @@ public class User {
         this.salt = salt;
     }
 
-    public String getRoleIds() {
+    public List<Long> getRoleIds() {
         return roleIds;
     }
 
-    public void setRoleIds(String roleIds) {
+    public void setRoleIds(List<Long> roleIds) {
         this.roleIds = roleIds;
     }
 

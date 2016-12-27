@@ -1,21 +1,43 @@
 package com.hjc.shirodemo.persistence.dao.entity;
 
-public class Resource {
-    private Long id;
+import java.io.Serializable;
 
-    private String name;
+public class Resource implements Serializable{
 
-    private String type;
+    private static final long serialVersionUID = 7135176929802215769L;
 
-    private String url;
+    private Long id;//编号
 
-    private Long parentId;
+    private String name; //资源名称
 
-    private String parentIds;
+    private ResourceType type = ResourceType.menu; //资源类型
 
-    private String permission;
+    private String url; //资源路径
 
-    private Boolean available;
+    private String permission; //权限字符串
+
+    private Long parentId; //父编号
+
+    private String parentIds; //父编号列表
+
+    private Boolean available = Boolean.FALSE;
+
+    public static enum ResourceType {
+        menu("菜单"), button("按钮");
+
+        private final String info;
+        private ResourceType(String info) {
+            this.info = info;
+        }
+
+        public String getInfo() {
+            return info;
+        }
+    }
+
+    public Resource(){
+
+    }
 
     public Long getId() {
         return id;
@@ -33,11 +55,11 @@ public class Resource {
         this.name = name;
     }
 
-    public String getType() {
+    public ResourceType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ResourceType type) {
         this.type = type;
     }
 

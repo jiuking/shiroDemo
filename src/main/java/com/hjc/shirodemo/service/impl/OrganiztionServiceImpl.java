@@ -19,27 +19,28 @@ public class OrganiztionServiceImpl implements OrganizationService{
         return organizationDao.insertSelective(organization);
     }
 
-    public Organization updateOrganization(Organization organization) {
-        return null;
+    public int updateOrganization(Organization organization) {
+        return organizationDao.updateByPrimaryKeySelective(organization);
     }
 
     public void deleteOrganization(Long organizationId) {
-
+        organizationDao.deleteByPrimaryKey(organizationId);
     }
 
     public Organization findOne(Long organizationId) {
-        return null;
+        return organizationDao.selectByPrimaryKey(organizationId);
     }
 
     public List<Organization> findAll() {
-        return null;
+        return organizationDao.findAll();
     }
 
-    public Object findAllWithExclude(Organization excludeOrganization) {
-        return null;
+    public Object findAllWithExclude(Long id,String parents) {
+        return organizationDao.findAllWithExclude(id,parents);
     }
 
     public void move(Organization source, Organization target) {
-
+        organizationDao.updateByPrimaryKey(source);
+        organizationDao.updateByPrimaryKey(target);
     }
 }

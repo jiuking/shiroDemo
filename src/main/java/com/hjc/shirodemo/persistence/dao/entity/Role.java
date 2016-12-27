@@ -1,16 +1,25 @@
 package com.hjc.shirodemo.persistence.dao.entity;
 
-public class Role {
-    private Long id;
+import java.io.Serializable;
+import java.util.List;
 
-    private String role;
+public class Role implements Serializable{
 
-    private String description;
+    private static final long serialVersionUID = 3707812797039526628L;
 
-    private String resourceIds;
+    private Long id;//编号
 
-    private Boolean available;
+    private String role; //角色标识 程序中判断使用,如"admin"
 
+    private String description; //角色描述,UI界面显示使用
+
+    private List<Long> resourceIds; //拥有的资源
+
+    private Boolean available = Boolean.FALSE; //是否可用,如果不可用将不会添加给用户
+
+    public Role(){
+
+    }
     public Long getId() {
         return id;
     }
@@ -35,11 +44,11 @@ public class Role {
         this.description = description;
     }
 
-    public String getResourceIds() {
+    public List<Long> getResourceIds() {
         return resourceIds;
     }
 
-    public void setResourceIds(String resourceIds) {
+    public void setResourceIds(List<Long> resourceIds) {
         this.resourceIds = resourceIds;
     }
 

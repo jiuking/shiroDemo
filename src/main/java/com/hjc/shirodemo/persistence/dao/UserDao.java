@@ -2,6 +2,8 @@ package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.User;
 
+import java.util.List;
+
 public interface UserDao {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,8 @@ public interface UserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> findAll();
+
+    User findByUsername(String username);
 }

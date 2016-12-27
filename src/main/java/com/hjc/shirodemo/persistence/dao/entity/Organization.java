@@ -1,15 +1,24 @@
 package com.hjc.shirodemo.persistence.dao.entity;
 
-public class Organization {
-    private Long id;
+import java.io.Serializable;
 
-    private String name;
+public class Organization implements Serializable{
 
-    private Long parentId;
+    private static final long serialVersionUID = 6295411855675336174L;
 
-    private String parentIds;
+    private Long id;//编号
 
-    private Boolean available;
+    private String name; //组织机构名称
+
+    private Long parentId; //父编号
+
+    private String parentIds; //父编号列表，如1/2/
+
+    private Boolean available = Boolean.FALSE;
+
+    public Organization(){
+
+    }
 
     public Long getId() {
         return id;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hjc.shirodemo.persistence.dao.SysOrganizationMapper">
-  <resultMap id="BaseResultMap" type="com.hjc.shirodemo.persistence.dao.entity.SysOrganization">
+<mapper namespace="com.hjc.shirodemo.persistence.dao.OrganizationDao">
+  <resultMap id="BaseResultMap" type="com.hjc.shirodemo.persistence.dao.entity.Organization">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="parent_id" jdbcType="BIGINT" property="parentId" />
@@ -21,13 +21,13 @@
     delete from sys_organization
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysOrganization">
+  <insert id="insert" parameterType="com.hjc.shirodemo.persistence.dao.entity.Organization">
     insert into sys_organization (id, name, parent_id, 
       parent_ids, available)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, 
       #{parentIds,jdbcType=VARCHAR}, #{available,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysOrganization">
+  <insert id="insertSelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.Organization">
     insert into sys_organization
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysOrganization">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.Organization">
     update sys_organization
     <set>
       <if test="name != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysOrganization">
+  <update id="updateByPrimaryKey" parameterType="com.hjc.shirodemo.persistence.dao.entity.Organization">
     update sys_organization
     set name = #{name,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=BIGINT},

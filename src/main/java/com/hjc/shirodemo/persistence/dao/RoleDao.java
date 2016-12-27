@@ -2,6 +2,8 @@ package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.Role;
 
+import java.util.List;
+
 public interface RoleDao {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface RoleDao {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    List<Role> findAll();
 }

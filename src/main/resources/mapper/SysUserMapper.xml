@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hjc.shirodemo.persistence.dao.SysUserMapper">
-  <resultMap id="BaseResultMap" type="com.hjc.shirodemo.persistence.dao.entity.SysUser">
+<mapper namespace="com.hjc.shirodemo.persistence.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.hjc.shirodemo.persistence.dao.entity.User">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="organization_id" jdbcType="BIGINT" property="organizationId" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -23,7 +23,7 @@
     delete from sys_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysUser">
+  <insert id="insert" parameterType="com.hjc.shirodemo.persistence.dao.entity.User">
     insert into sys_user (id, organization_id, username, 
       password, salt, role_ids, 
       locked)
@@ -31,7 +31,7 @@
       #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{roleIds,jdbcType=VARCHAR}, 
       #{locked,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysUser">
+  <insert id="insertSelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.User">
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hjc.shirodemo.persistence.dao.entity.User">
     update sys_user
     <set>
       <if test="organizationId != null">
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hjc.shirodemo.persistence.dao.entity.SysUser">
+  <update id="updateByPrimaryKey" parameterType="com.hjc.shirodemo.persistence.dao.entity.User">
     update sys_user
     set organization_id = #{organizationId,jdbcType=BIGINT},
       username = #{username,jdbcType=VARCHAR},
