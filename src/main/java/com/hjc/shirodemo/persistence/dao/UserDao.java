@@ -1,6 +1,8 @@
 package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.User;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 public interface UserDao {

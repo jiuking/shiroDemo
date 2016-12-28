@@ -1,6 +1,7 @@
 package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.Role;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
