@@ -21,5 +21,5 @@ public interface RoleService {
     /*
     * 根据角色编号获得权限字符串列表
     * */
-    Set<String> findPermission(Long[] roleIds);
+    Set<String> findPermissions(Long[] roleIds);
 }

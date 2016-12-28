@@ -2,10 +2,12 @@ package com.hjc.shirodemo.service.impl;
 
 import com.hjc.shirodemo.persistence.dao.UserDao;
 import com.hjc.shirodemo.persistence.dao.entity.User;
+import com.hjc.shirodemo.service.RoleService;
 import com.hjc.shirodemo.service.UserService;
 import com.hjc.shirodemo.util.PasswordHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +21,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordHelper passwordHelper;
+
+    @Autowired
+    private RoleService roleService;
 
     public int createUser(User user) {
         //加密密码
@@ -54,10 +59,16 @@ public class UserServiceImpl implements UserService {
     }
 
     public Set<String> findRoles(String username) {
-        return null;
+        User user = findByUsername(username);
+        if(user == null)
+            return Collections.EMPTY_SET;
+        return roleService.findRoles(user.getRoleIds().toArray(new Long[0]));
     }
 
     public Set<String> findPermissions(String username) {
-        return null;
+        User user = findByUsername(username);
+        if(user == null)
+            return Collections.EMPTY_SET;
+        return roleService.findPermissions(user.getRoleIds().toArray(new Long[0]));
     }
 }

@@ -52,7 +52,7 @@ public class RoleServiceImpl implements RoleService {
         return roles;
     }
 
-    public Set<String> findPermission(Long[] roleIds) {
+    public Set<String> findPermissions(Long[] roleIds) {
         Set<Long> resourceIds = new HashSet<Long>();
         for(Long roleId:roleIds){
             Role role = findOne(roleId);

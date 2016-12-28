@@ -66,7 +66,7 @@ public class User implements Serializable{
     }
 
     public String getCredentialsSalt() {
-        return username + salt;
+        return username+salt;
     }
 
     public List<Long> getRoleIds() {
