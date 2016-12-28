@@ -14,7 +14,7 @@
   <sql id="Base_Column_List">
     id, name, type, url, parent_id, parent_ids, permission, available
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_resource

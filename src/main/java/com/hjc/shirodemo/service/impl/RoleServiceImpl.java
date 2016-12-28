@@ -5,6 +5,7 @@ import com.hjc.shirodemo.persistence.dao.entity.Role;
 import com.hjc.shirodemo.service.ResourceService;
 import com.hjc.shirodemo.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Set;
 /**
  * Created by Bravowhale on 2016/12/27.
  */
+@Service
 public class RoleServiceImpl implements RoleService {
 
     @Autowired
@@ -60,6 +62,6 @@ public class RoleServiceImpl implements RoleService {
                 resourceIds.addAll(role.getResourceIds());
             }
         }
-        return null;
+        return resourceService.findPermissions(resourceIds);
     }
 }

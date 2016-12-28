@@ -20,7 +20,4 @@ public interface ResourceDao {
 
     List<Resource> findAll();
 
-    Set<String> findPermissions(Set<Long> resouceIds);
-
-    List<Resource> findMenus(Set<String> permissions);
 }

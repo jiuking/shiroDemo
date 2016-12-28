@@ -3,14 +3,17 @@ package com.hjc.shirodemo.service.impl;
 import com.hjc.shirodemo.persistence.dao.OrganizationDao;
 import com.hjc.shirodemo.persistence.dao.entity.Organization;
 import com.hjc.shirodemo.service.OrganizationService;
+import net.sf.ehcache.search.expression.Or;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Bravowhale on 2016/12/27.
  */
-public class OrganiztionServiceImpl implements OrganizationService{
+@Service
+public class OrganizationServiceImpl implements OrganizationService{
 
     @Autowired
     private OrganizationDao organizationDao;
@@ -40,7 +43,15 @@ public class OrganiztionServiceImpl implements OrganizationService{
     }
 
     public void move(Organization source, Organization target) {
-        organizationDao.updateByPrimaryKey(source);
-        organizationDao.updateByPrimaryKey(target);
+        Organization organization = new Organization();
+        organization.setId(source.getId());
+        organization.setParentId(target.getParentId());
+        organization.setParentIds(target.getParentIds());
+        organizationDao.updateByPrimaryKeySelective(organization);
+
+        organizationDao.moveSourceDescendants(
+                target.makeSelfAsParentIds(),
+                source.makeSelfAsParentIds(),
+                source.makeSelfAsParentIds() + "%");
     }
 }

@@ -1,7 +1,6 @@
 package com.hjc.shirodemo.service;
 
 import com.hjc.shirodemo.persistence.dao.entity.Organization;
-
 import java.util.List;
 
 /**

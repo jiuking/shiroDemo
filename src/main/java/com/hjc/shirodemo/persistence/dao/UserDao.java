@@ -1,7 +1,6 @@
 package com.hjc.shirodemo.persistence.dao;
 
 import com.hjc.shirodemo.persistence.dao.entity.User;
-
 import java.util.List;
 
 public interface UserDao {

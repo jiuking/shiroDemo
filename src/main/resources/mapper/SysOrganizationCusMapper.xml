@@ -23,4 +23,11 @@
 
   </select>
 
+  <update id="moveSourceDescendants">
+    update sys_organization
+    set
+    parent_ids=concat(#{targetParentIds}, substring(parent_ids, length(#{sourceParentIds})))
+    where parent_ids like #{sourceParentLikeIds}
+  </update>
+
 </mapper>

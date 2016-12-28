@@ -16,6 +16,8 @@ public interface ResourceService {
 
     void deleteResource(Long resourceId);
 
+    Resource findOne(Long id);
+
     List<Resource> findAll();
 
     /*

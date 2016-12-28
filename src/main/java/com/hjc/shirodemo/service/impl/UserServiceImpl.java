@@ -6,6 +6,7 @@ import com.hjc.shirodemo.service.RoleService;
 import com.hjc.shirodemo.service.UserService;
 import com.hjc.shirodemo.util.PasswordHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Set;
 /**
  * Created by Bravowhale on 2016/12/27.
  */
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -44,13 +46,13 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> findAll() {
-        return null;
+        return userDao.findAll();
     }
 
     public void changePassword(Long userId, String newPassword) {
         User user = findOne(userId);
         user.setPassword(newPassword);
-
+        passwordHelper.encryptPassword(user);
         userDao.updateByPrimaryKeySelective(user);
     }
 

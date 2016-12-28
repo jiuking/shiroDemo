@@ -21,5 +21,12 @@ public interface OrganizationDao {
 
     List<Organization> findAll();
 
-    Object findAllWithExclude(@Param(value="id") Long id,@Param(value="parentIds")String parentIds);
+    Object findAllWithExclude(
+            @Param(value="id") Long id,
+            @Param(value="parentIds")String parentIds);
+
+    void moveSourceDescendants(
+            @Param(value = "targetParentIds") String targetParentIds,
+            @Param(value = "sourceParentIds") String sourceParentIds,
+            @Param(value = "sourceParentLikeIds") String sourceParentLikeIds);
 }
