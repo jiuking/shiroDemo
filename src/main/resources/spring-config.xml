@@ -8,22 +8,21 @@
           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
 
     <context:property-placeholder location="classpath:resources.properties"/>
 
     <!-- 开启AOP监听 只对当前配置文件有效
     proxy-target-class属性若此值为true强制使用CGLIB代理；
     expose-proxy属性是为了目标对象内部的自我调用无法实施切面中增加 -->
-    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+    <aop:aspectj-autoproxy expose-proxy="true"/>
 
     <!--<context:component-scan base-package="com.hjc.shirodemo">
-        <context:include-filter type="regex"
-                            expression="com.hjc.shirodemo.persistence.dao.*DAO.*" />
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>-->
-
-    <context:annotation-config />
+    </context:component-scan>
+-->
+    <!--<context:annotation-config />-->
 
     <!-- 数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">

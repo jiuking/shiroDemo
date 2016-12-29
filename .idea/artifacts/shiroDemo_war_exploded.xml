@@ -23,6 +23,7 @@
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.10" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.5.RELEASE" />
@@ -31,7 +32,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.5.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.2" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.1" />
