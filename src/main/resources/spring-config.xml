@@ -12,15 +12,18 @@
 
     <context:property-placeholder location="classpath:resources.properties"/>
 
-    <!-- 扫描注解Bean -->
-   <!-- <context:component-scan base-package="com.hjc.shirodemo">
+    <!-- 开启AOP监听 只对当前配置文件有效
+    proxy-target-class属性若此值为true强制使用CGLIB代理；
+    expose-proxy属性是为了目标对象内部的自我调用无法实施切面中增加 -->
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+
+    <!--<context:component-scan base-package="com.hjc.shirodemo">
+        <context:include-filter type="regex"
+                            expression="com.hjc.shirodemo.persistence.dao.*DAO.*" />
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    </context:component-scan>-->
 
-    <context:annotation-config />-->
-
-    <!-- 开启AOP监听 只对当前配置文件有效 -->
-    <aop:aspectj-autoproxy expose-proxy="true"/>
+    <context:annotation-config />
 
     <!-- 数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
@@ -53,10 +56,6 @@
 
     <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
         <property name="targetDataSource" ref="dataSource" />
-    </bean>
-
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <constructor-arg ref="dataSourceProxy" />
     </bean>
 
     <!-- 事务管理配置 -->
