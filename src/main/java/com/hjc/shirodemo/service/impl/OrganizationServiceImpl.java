@@ -3,7 +3,6 @@ package com.hjc.shirodemo.service.impl;
 import com.hjc.shirodemo.persistence.dao.OrganizationDao;
 import com.hjc.shirodemo.persistence.dao.entity.Organization;
 import com.hjc.shirodemo.service.OrganizationService;
-import net.sf.ehcache.search.expression.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

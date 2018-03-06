@@ -6,13 +6,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface RoleDao {
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Role record);
 
     int insertSelective(Role record);
 
-    Role selectByPrimaryKey(Long id);
+    Role selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(Role record);
 

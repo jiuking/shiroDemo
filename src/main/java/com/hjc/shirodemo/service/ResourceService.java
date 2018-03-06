@@ -16,17 +16,27 @@ public interface ResourceService {
 
     void deleteResource(Long resourceId);
 
-    Resource findOne(Long id);
+    Resource findOne(String id);
 
     List<Resource> findAll();
 
-    /*
-    * 得到资源所对应的权限字符串
-    * */
-    Set<String> findPermissions(Set<Long> resouceIds);
+    /**
+     * @Author: hjc
+     * @Description: 得到资源所对应的权限字符串
+     * @param: resouceIds 资源ids
+     * @Date: 13:53 2018/3/5 0005
+     * @return: java.util.Set<java.lang.String>
+     * @throws:
+     */;
+    Set<String> findPermissions(Set<String> resouceIds);
 
-    /*
-   * 根据用户权限得到菜单
-   * */
+    /**
+     * @Author: hjc
+     * @Description: 根据用户权限得到菜单
+     * @param: 权限ids
+     * @Date: 13:54 2018/3/5 0005
+     * @return: java.util.List<com.hjc.shirodemo.persistence.dao.entity.Resource>
+     * @throws:
+     */
     List<Resource> findMenus(Set<String> permissions);
 }

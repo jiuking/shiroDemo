@@ -15,7 +15,7 @@ import java.util.Set;
 /**
  * Created by Bravowhale on 2016/12/27.
  */
-@Service
+@Service(value = "usrService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -64,13 +64,13 @@ public class UserServiceImpl implements UserService {
         User user = findByUsername(username);
         if(user == null)
             return Collections.EMPTY_SET;
-        return roleService.findRoles(user.getRoleIds().toArray(new Long[0]));
+        return roleService.findRoles(user.getRoleIds());
     }
 
     public Set<String> findPermissions(String username) {
         User user = findByUsername(username);
         if(user == null)
             return Collections.EMPTY_SET;
-        return roleService.findPermissions(user.getRoleIds().toArray(new Long[0]));
+        return roleService.findPermissions(user.getRoleIds());
     }
 }

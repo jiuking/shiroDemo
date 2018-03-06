@@ -108,10 +108,7 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
-                /login = authc
-                /logout = logout
-                /authenticated = authc
-                /** = anno
+                /** = anon
             </value>
         </property>
     </bean>

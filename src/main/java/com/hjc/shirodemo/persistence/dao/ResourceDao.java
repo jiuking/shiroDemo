@@ -14,7 +14,7 @@ public interface ResourceDao {
 
     int insertSelective(Resource record);
 
-    Resource selectByPrimaryKey(Long id);
+    Resource selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(Resource record);
 

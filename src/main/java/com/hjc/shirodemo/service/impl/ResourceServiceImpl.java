@@ -34,7 +34,7 @@ public class ResourceServiceImpl implements ResourceService {
         resourceDao.deleteByPrimaryKey(resourceId);
     }
 
-    public Resource findOne(Long id) {
+    public Resource findOne(String id) {
         return resourceDao.selectByPrimaryKey(id);
     }
 
@@ -42,9 +42,9 @@ public class ResourceServiceImpl implements ResourceService {
         return resourceDao.findAll();
     }
 
-    public Set<String> findPermissions(Set<Long> resourceIds) {
+    public Set<String> findPermissions(Set<String> resourceIds) {
         Set<String> permissions = new HashSet<String>();
-        for (Long resourceId:resourceIds){
+        for (String resourceId:resourceIds){
             Resource resource = findOne(resourceId);
             if(resource != null && !StringUtils.isEmpty(resource.getPermission())){
                 permissions.add(resource.getPermission());

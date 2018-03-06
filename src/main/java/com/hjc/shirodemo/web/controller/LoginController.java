@@ -18,12 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
 
     @Autowired
-    private UserService userService;
+    private UserService usrService;
 
     @RequestMapping(value = "/login")
     public String showLoginForm(HttpServletRequest request, Model model){
         String exceptionClassName = (String)request.getAttribute("shiroLoginFailure");
-        User user = userService.findByUsername("admin");
+        User user = usrService.findByUsername("admin");
         String error = null;
         if(UnknownAccountException.class.getName().equals(exceptionClassName)){
             error = "用户名/密码错误";

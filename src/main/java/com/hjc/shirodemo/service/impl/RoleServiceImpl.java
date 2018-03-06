@@ -31,11 +31,11 @@ public class RoleServiceImpl implements RoleService {
         return roleDao.updateByPrimaryKeySelective(role);
     }
 
-    public void deleteRole(Long roleId){
+    public void deleteRole(String roleId){
         roleDao.deleteByPrimaryKey(roleId);
     }
 
-    public Role findOne(Long roleId){
+    public Role findOne(String roleId){
         return roleDao.selectByPrimaryKey(roleId);
     }
 
@@ -43,25 +43,25 @@ public class RoleServiceImpl implements RoleService {
         return roleDao.findAll();
     }
 
-    public Set<String> findRoles(Long... roleIds) {
+    public Set<String> findRoles(String roleIds) {
         Set<String> roles = new HashSet<String>();
-        for (Long id: roleIds) {
-            Role role = findOne(id);
+//        for (String id: roleIds) {
+            Role role = findOne(roleIds);
             if(role != null){
                 roles.add(role.getRole());
-            }
+//            }
         }
         return roles;
     }
 
-    public Set<String> findPermissions(Long[] roleIds) {
-        Set<Long> resourceIds = new HashSet<Long>();
-        for(Long roleId:roleIds){
-            Role role = findOne(roleId);
+    public Set<String> findPermissions(String roleIds) {
+        Set<String> resourceIds = new HashSet<String>();
+//        for(Long roleId:roleIds){
+            Role role = findOne(roleIds);
             if(role != null){
-                resourceIds.addAll(role.getResourceIds());
+                resourceIds.add(role.getResourceIds());
             }
-        }
+//        }
         return resourceService.findPermissions(resourceIds);
     }
 }

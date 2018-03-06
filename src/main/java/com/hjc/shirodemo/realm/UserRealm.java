@@ -9,6 +9,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by Bravowhale on 2016/12/28.
@@ -16,14 +17,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserRealm extends AuthorizingRealm{
 
     @Autowired
-    private UserService userService;
+    @Qualifier(value = "usrService")
+    private UserService usrService;
 
     //权限认证
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         String username = (String) principalCollection.getPrimaryPrincipal();
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        authorizationInfo.setRoles(userService.findRoles(username));
-        authorizationInfo.setStringPermissions(userService.findPermissions(username));
+        authorizationInfo.setRoles(usrService.findRoles(username));
+        authorizationInfo.setStringPermissions(usrService.findPermissions(username));
         return authorizationInfo;
     }
 
@@ -31,7 +33,7 @@ public class UserRealm extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String username = (String) authenticationToken.getPrincipal();
 
-        User user = userService.findByUsername(username);
+        User user = usrService.findByUsername(username);
         if(user == null){
             throw new UnknownAccountException();
         }
